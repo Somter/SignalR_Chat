@@ -22,4 +22,12 @@ using (var scope = app.Services.CreateScope())
     db.Database.EnsureCreated(); 
 }
 
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<ChatDbContext>();
+    db.Users.RemoveRange(db.Users); 
+    db.SaveChanges();
+}
+
+
 app.Run();

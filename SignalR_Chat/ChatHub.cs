@@ -15,7 +15,7 @@ namespace SignalR_Chat
 
         public async Task Send(string username, string message)
         {
-            var msg = new Message
+            var msg = new Message 
             {
                 UserName = username,
                 Text = message,
